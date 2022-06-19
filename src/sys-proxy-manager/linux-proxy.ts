@@ -13,11 +13,17 @@ class LinuxProxyManager implements ProxyManager {
             }
         }
 
-        return execSyncWithStatus(``)
+        return {
+          stdout: 'unsupport to set proxy in linux',
+          status: -1
+        }
 
     }
     disableGlobalProxy(): IExecResult {
-        return execSyncWithStatus(``)
+        return {
+          status: 0,
+          stdout: ''
+        }
     }
     enableAutoProxy(pac: string): IExecResult {
         return {
@@ -26,7 +32,7 @@ class LinuxProxyManager implements ProxyManager {
         }
     }
     disableAutoProxy(): void {
-        
+
     }
     getProxyState(): IExecResult {
         return {
